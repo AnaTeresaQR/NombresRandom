@@ -13,5 +13,11 @@ public class Main {
 
     public static void main(String[] args) {
 
+        char vector1[] = {'a', 'e', 'o'};
+
+        VectorManager vm = new VectorManager(vector1);
+
+        System.out.println("Letra:  " + vm.letraRandom());
+
     }
 }

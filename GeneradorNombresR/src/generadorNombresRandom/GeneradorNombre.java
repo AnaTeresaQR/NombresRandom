@@ -5,10 +5,53 @@
  */
 package generadorNombresRandom;
 
+import java.util.Random;
+
 /**
  *
  * @author Ana Teresa
  */
 public class GeneradorNombre {
 
+    private VectorManager vocales;
+    private VectorManager consonantes;
+
+    Random r = new Random();
+
+    public GeneradorNombre() {
+        char tempv[] = {'a', 'e', 'i', 'o', 'u'};
+        char tempc[] = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'ñ', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
+        vocales = new VectorManager(tempv);
+        consonantes = new VectorManager(tempc);
+    }
+
+    /**
+     * Método que genera un número random, según el tamaño máximo
+     */
+    private int generarTamanno(int maximo) {
+        int tam = r.nextInt(maximo - 3) + 3;
+        return tam;
+    }
+
+    /**
+     * Método que se encarga de formar el nombre alternando entre vocales y
+     * consonantes de manera random
+     *
+     * @param tamannoMax recibe el tamaño máximo del nombre
+     * @return el nombre formado
+     */
+    public String crearNombre(int tamannoMax) {
+        String nombre = "";
+        tamannoMax = generarTamanno(tamannoMax);
+        boolean vocal = r.nextBoolean();
+        for (int i = 0; i <= tamannoMax; i++) {
+            if (vocal) {
+                nombre += vocales.letraRandom();
+            } else {
+                nombre += consonantes.letraRandom();
+            }
+            vocal = !vocal;
+        }
+        return nombre;
+    }
 }
