@@ -5,6 +5,8 @@
  */
 package generadorNombresRandom;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ana Teresa
@@ -13,11 +15,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        char vector1[] = {'a', 'e', 'o'};
+        while (true) {
+            int tamanno = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el número máximo que desea el nombre generado"));
 
-        VectorManager vm = new VectorManager(vector1);
-
-        System.out.println("Letra:  " + vm.letraRandom());
-
+            GeneradorNombre gn = new GeneradorNombre();
+            JOptionPane.showMessageDialog(null, "El nombre resultante es: \n" + gn.crearNombre(tamanno));
+        }
     }
 }
