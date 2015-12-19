@@ -19,15 +19,19 @@ public class GeneradorNombre {
     private Random r;
 
     public GeneradorNombre() {
-        char tempv[] = {'a', 'e', 'i', 'o', 'u'};
-        char tempc[] = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'ñ', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
-        vocales = new VectorManager(tempv);
-        consonantes = new VectorManager(tempc);
+        initVector();
         initRandom();
     }
 
     private void initRandom() {
         r = new Random();
+    }
+
+    private void initVector() {
+        char tempv[] = {'a', 'e', 'i', 'o', 'u'};
+        char tempc[] = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'ñ', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
+        vocales = new VectorManager(tempv);
+        consonantes = new VectorManager(tempc);
     }
 
     /**
