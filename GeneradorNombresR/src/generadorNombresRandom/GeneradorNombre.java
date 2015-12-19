@@ -16,19 +16,27 @@ public class GeneradorNombre {
     private VectorManager vocales;
     private VectorManager consonantes;
 
-    Random r = new Random();
+    private Random r;
 
     public GeneradorNombre() {
         char tempv[] = {'a', 'e', 'i', 'o', 'u'};
         char tempc[] = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'ñ', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
         vocales = new VectorManager(tempv);
         consonantes = new VectorManager(tempc);
+        initRandom();
+    }
+
+    private void initRandom() {
+        r = new Random();
     }
 
     /**
      * Método que genera un número random, según el tamaño máximo
      */
     private int generarTamanno(int maximo) {
+        if (maximo <= 3) {
+            return 3;
+        }
         int tam = r.nextInt(maximo - 3) + 3;
         return tam;
     }

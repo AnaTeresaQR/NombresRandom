@@ -14,10 +14,15 @@ import java.util.Random;
 public class VectorManager {
 
     char vector[];
-    Random r = new Random();
+    private Random r;
 
     public VectorManager(char vector[]) {
         this.vector = vector;
+        initRandom();
+    }
+
+    private void initRandom() {
+        r = new Random();
     }
 
     /**
